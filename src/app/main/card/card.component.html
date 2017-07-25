@@ -1,0 +1,8 @@
+
+  <div class="card-block">
+    <h4 class="card-title">{{ project.title }}</h4>
+    <h3 class="card-subtitle mb-2">{{ project.time }}</h3>
+    <p class="card-text" *ngIf="project.description !== ''">{{ project.description }}</p>
+    <button class="btn btn-primary">Do Something Maybe?</button>
+    <button class="btn btn-danger">Delete I guess?</button>
+  </div>
