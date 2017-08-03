@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProjectService } from './project.service';
 
 @Component({
@@ -7,6 +7,13 @@ import { ProjectService } from './project.service';
   styleUrls: ['./app.component.css'],
   providers: [ProjectService]
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'the app';
+  constructor(private projectServ: ProjectService){
+
+  }
+
+  ngOnInit() {
+    this.projectServ.fetchLocalData();
+  }
 }

@@ -3,7 +3,6 @@ import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 import 'rxjs/Rx';
 import { Subject } from 'rxjs/Subject';
-import { current } from 'codelyzer/util/syntaxKind';
 
 // import { Injectable } from '@angular/core';
 //
@@ -27,9 +26,10 @@ export class ProjectService {
           return;
         }
         // if you already have a subscription, delete it
+        // this is pause, make it a function eventually for when you need to pause
         if(this.currentSub){
           this.currentSub.unsubscribe();
-          this.pauseTimerForProject(this.runningId);
+          this.pauseTimerProtocol(this.runningId);
         }
         // set new id and run timer
         this.runningId = id;
@@ -39,11 +39,16 @@ export class ProjectService {
   }
 
 
-
-  pauseTimerForProject(id: number){
+  // this is the OLD id number
+  pauseTimerProtocol(id: number){
     // Save whenever you make the localSotorage service
+    const saveData = JSON.stringify(this.getProjects());
+    console.log('Trying to save this to local storage:', saveData);
+    window.localStorage.setItem('time-tracker-data', saveData);
   }
 
+
+  // this is the NEW id number
   runTimerForProject(id: number){
       // this first one just makes it instant response instead of wait for a second to respond (aka accurate time)
       this.projects[this.runningId].time++;
@@ -59,6 +64,22 @@ export class ProjectService {
 
   saveDataLocally(){
 
+  }
+
+  fetchLocalData(){
+    const retrievedData = JSON.parse(window.localStorage.getItem('time-tracker-data'));
+    console.log('got data from browser:\n', retrievedData);
+    this.setProjects(retrievedData);
+  }
+
+  setProjects(data: Object[]){
+    let result: Project[] = [];
+    for(const each in data){
+      console.log( data[each]);
+      result.push(new Project(data[each]['title'], data[each]['time'], data[each]['description']));
+      console.log('results: ', result);
+    }
+    this.projects = result;
   }
 
   getProjects(){
