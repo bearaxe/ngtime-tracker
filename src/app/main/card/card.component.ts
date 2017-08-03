@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Project } from '../../shared/project.model';
 import { ProjectService } from '../../project.service';
-import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-card',
@@ -10,19 +9,16 @@ import { Observable } from 'rxjs/Rx';
 })
 export class CardComponent implements OnInit {
   @Input() project: Project;
-  timer;
-  activeTimer = false;
-
+  @Input() id: number;
 
   constructor(private projectServ: ProjectService) { }
 
   ngOnInit() {
-      const tick = Observable.interval(1000)//.filter(activeTimer=>{})
-      this.timer = tick.subscribe(
-        (number: number) => {
-          console.log(number);
-        }
-      );
+  }
+
+  onClick(){
+    console.log('you clicked card number: ', this.id);
+    this.projectServ.idSubj.next(this.id);
   }
 
 }

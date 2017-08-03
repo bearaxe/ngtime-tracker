@@ -1,5 +1,5 @@
 export class Project{
-    constructor(private title: string,
-                private time: number,
-                private description: string){}
+    constructor(public title: string,
+                public time: number,
+                public description: string){}
 }

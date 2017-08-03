@@ -6,6 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { MainComponent } from './main/main.component';
 import { CardComponent } from './main/card/card.component';
+import { TimeFormatPipe } from './shared/time-format.pipe';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { CardComponent } from './main/card/card.component';
     DropdownDirective,
     MainComponent,
     CardComponent,
+    TimeFormatPipe,
   ],
   imports: [
     BrowserModule
