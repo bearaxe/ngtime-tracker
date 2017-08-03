@@ -69,7 +69,9 @@ export class ProjectService {
   fetchLocalData(){
     const retrievedData = JSON.parse(window.localStorage.getItem('time-tracker-data'));
     console.log('got data from browser:\n', retrievedData);
-    this.setProjects(retrievedData);
+    if(retrievedData !== null){
+      this.setProjects(retrievedData);
+    }
   }
 
   setProjects(data: Object[]){
