@@ -105,8 +105,16 @@ export class ProjectService {
 
   updateProject(id: number, data: {'title': string, 'description': string}){
     console.log('testing update:');
-    console.log('updating project at index:', id, ' to ', new Project(data['title'], this.projects[id]['time'], data['description']) )
-    this.projects[id] = new Project(data['title'], this.projects[id]['time'], data['description']);
+    console.log('updating project at index:', id, ' to ', new Project(data['title'], this.projects[id]['time'], data['description']) );
+    const newTitle =
+      (data.title === ''
+        ? this.projects[id].title
+        : data.title);
+    const newDesc =
+      (data.description === ''
+        ? this.projects[id].description
+        : data.description);
+    this.projects[id] = new Project(newTitle, this.projects[id]['time'], newDesc);
     this.updatedProjectList.next(this.projects);
     this.saveDataLocally();
   }

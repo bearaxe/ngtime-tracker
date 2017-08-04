@@ -10,11 +10,12 @@ import { NgForm } from '@angular/forms';
 export class EditorComponent implements OnInit {
   @Input() id: number = -1;
   editorShowing = false;
+  @Input() inCard = false;
 
   constructor(private projectServ: ProjectService) { }
 
   ngOnInit() {
-    console.log('this linter is obnoxious:', this.id );
+    console.log('Id of Project this form will edit:', this.id );
   }
 
   onSubmit(form: NgForm){
@@ -24,6 +25,10 @@ export class EditorComponent implements OnInit {
     } else {
       this.projectServ.updateProject(this.id, form.value);
     }
+  }
+
+  delete(){
+    this.projectServ.deleteProject(this.id);
   }
 
   close(){
