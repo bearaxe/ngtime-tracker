@@ -6,6 +6,9 @@
       <p class="card-text" *ngIf="project.description !== ''">{{ project.description }}</p>
       <button class="btn btn-success" (click)="startTimer()">Start Timer</button>
       <button class="btn btn-primary" (click)="pauseTimer()">Pause Timer</button>
-      <button class="btn btn-secondary">Edit I guess?</button>
+      <button class="btn btn-secondary" (click)="showSubEditor = (showSubEditor?false: true)">Edit Project</button>
+      <div id="subEditorField" [ngClass]="{'hidden': !showSubEditor}">
+        <ng-content></ng-content>
+      </div>
     </div>
   </div>

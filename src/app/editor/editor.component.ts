@@ -1,23 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { ProjectService } from '../project.service';
+import { EditorComponent } from '../shared/editor/editor.component';
 
 @Component({
-  selector: 'app-editor',
+  selector: 'app-main-editor',
   templateUrl: './editor.component.html',
   styleUrls: ['./editor.component.css']
 })
-export class EditorComponent implements OnInit {
+export class EditorMainComponent implements OnInit {
   showEditor = false;
 
-  constructor(private projectServ: ProjectService) { }
+  constructor() { }
 
   ngOnInit() {
   }
 
-  onSubmit(form: NgForm){
-    console.log('form values:', form.value);
-    this.projectServ.addNewProject(form.value);
-  }
+
 
 }

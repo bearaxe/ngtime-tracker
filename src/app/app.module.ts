@@ -8,7 +8,8 @@ import { DropdownDirective } from './shared/dropdown.directive';
 import { MainComponent } from './main/main.component';
 import { CardComponent } from './main/card/card.component';
 import { TimeFormatPipe } from './shared/time-format.pipe';
-import { EditorComponent } from './editor/editor.component';
+import { EditorMainComponent } from './editor/editor.component';
+import { EditorComponent } from './shared/editor/editor.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { EditorComponent } from './editor/editor.component';
     MainComponent,
     CardComponent,
     TimeFormatPipe,
+    EditorMainComponent,
     EditorComponent,
   ],
   imports: [

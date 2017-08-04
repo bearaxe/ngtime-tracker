@@ -10,6 +10,7 @@ import { ProjectService } from '../../project.service';
 export class CardComponent implements OnInit {
   @Input() project: Project;
   @Input() id: number;
+  showSubEditor = false;
 
   constructor(private projectServ: ProjectService) { }
 

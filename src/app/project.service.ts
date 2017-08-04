@@ -103,4 +103,18 @@ export class ProjectService {
     this.saveDataLocally();
   }
 
+  updateProject(id: number, data: {'title': string, 'description': string}){
+    console.log('testing update:');
+    console.log('updating project at index:', id, ' to ', new Project(data['title'], this.projects[id]['time'], data['description']) )
+    this.projects[id] = new Project(data['title'], this.projects[id]['time'], data['description']);
+    this.updatedProjectList.next(this.projects);
+    this.saveDataLocally();
+  }
+
+  deleteProject(id: number){
+    this.projects.splice(id,1);
+    this.updatedProjectList.next(this.projects);
+    // Do not save here. Let the user reload if they made a mistake
+  }
+
 }
