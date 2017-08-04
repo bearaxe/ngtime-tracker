@@ -16,9 +16,14 @@ export class CardComponent implements OnInit {
   ngOnInit() {
   }
 
-  onClick(){
-    console.log('you clicked card number: ', this.id);
+  startTimer(){
+    console.log('you started card number: ', this.id);
     this.projectServ.idSubj.next(this.id);
+  }
+
+  pauseTimer(){
+    console.log('you stopped card number: ', this.id);
+    this.projectServ.idSubj.next(-1);
   }
 
 }

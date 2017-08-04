@@ -1,0 +1,16 @@
+.card-block{
+
+  text-align: center;
+  padding: 10px;
+}
+.btn{
+  display: block;
+  width: 100%;
+  margin: 5px 0;
+}
+.card-limit{
+  border: 1px solid black;
+  max-width: 450px;
+  padding: 5px;
+  margin: 0 auto;
+}
