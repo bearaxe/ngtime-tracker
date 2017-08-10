@@ -11,11 +11,17 @@ export class EditorComponent implements OnInit {
   @Input() id: number = -1;
   editorShowing = false;
   @Input() inCard = false;
+  title = 'null';
+  description = 'null';
+  @Input() project = {'title': '', 'description': ''};
 
   constructor(private projectServ: ProjectService) { }
 
   ngOnInit() {
     console.log('Id of Project this form will edit:', this.id );
+    console.log('poject data:', this.project)
+    this.title = this.project.title;
+    this.description = this.project.description;
   }
 
   onSubmit(form: NgForm){

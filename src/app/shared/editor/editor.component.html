@@ -2,11 +2,11 @@
 <form #f="ngForm" class="clearfix">
   <div class="form-group">
     <label for="title">Title</label>
-    <input type="text" class="form-control" name="title" #title="ngModel" ngModel required>
+    <input type="text" class="form-control" name="title" [(ngModel)]="title" required>
   </div>
   <div class="form-group">
     <label for="description">Description</label>
-    <input type="text" class="form-control" name="description" #description="ngModel" ngModel>
+    <input type="text" class="form-control" name="description" [(ngModel)]="description">
   </div>
   <button class="btn btn-success" [ngClass]="{'pull-right': inCard}" (click)="onSubmit(f)">Submit</button>
   <div class="form-group pull-left" *ngIf="inCard">
