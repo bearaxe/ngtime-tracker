@@ -1,7 +1,8 @@
 
   <div class="card-block">
     <div class="card-limit">
-      <button class="btn btn-success pin pull-right" (click)="pinProject()">Pin Me!</button>
+      <button class="btn btn-secondary pin pull-left" [ngClass]="{'hidden': !pinned}" (click)="pinProject()">Unpin Me!</button>
+      <button class="btn btn-success pin pull-right" [ngClass]="{'hidden': pinned}" (click)="pinProject()">Pin Me!</button>
       <div class="clearfix"></div>
       <h4 class="card-title ">{{ project.title }}</h4>
       <h3 class="card-subtitle mb-2">{{ project.time | timeFormat }}</h3>

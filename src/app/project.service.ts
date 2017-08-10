@@ -16,10 +16,7 @@ export class ProjectService {
       new Project('TestProj 3',0,'A small description')
   ];
 
-  private pinnedProjects: Project[] = [];
-
   timerSubj = new Subject<number>();
-  pinSubj = new Subject<number>();
   currentSub: Subscription;
   runningId: number;
 
@@ -39,12 +36,6 @@ export class ProjectService {
         // set new id and run timer
         this.runningId = id;
         this.runTimerForProject(this.runningId);
-      }
-    );
-
-    this.pinSubj.subscribe(
-      (id: number) => {
-        this.pinProject(id);
       }
     );
   }
@@ -94,7 +85,7 @@ export class ProjectService {
     let result: Project[] = [];
     for(const each in data){
       console.log( data[each]);
-      result.push(new Project(data[each]['title'], data[each]['time'], data[each]['description']));
+      result.push(new Project(data[each]['title'], data[each]['time'], data[each]['description'], data[each]['pinned']));
       console.log('results: ', result);
     }
     this.projects = result;
@@ -112,7 +103,7 @@ export class ProjectService {
     this.saveDataLocally();
   }
 
-  updateProject(id: number, data: {'title': string, 'description': string}){
+  updateProject(id: number, data: {'title': string, 'description': string, 'pinned': boolean}){
     console.log('testing update:');
     console.log('updating project at index:', id, ' to ', new Project(data['title'], this.projects[id]['time'], data['description']) );
     const newTitle =
@@ -123,19 +114,30 @@ export class ProjectService {
       (data.description === ''
         ? this.projects[id].description
         : data.description);
+    const newPin =
+      (data.pinned === true
+        ? this.projects[id].pinned = true
+        : this.projects[id].pinned = false);
     this.projects[id] = new Project(newTitle, this.projects[id]['time'], newDesc);
     this.updatedProjectList.next(this.projects);
     this.saveDataLocally();
   }
 
   deleteProject(id: number){
-    this.projects.splice(id,1);
-    this.updatedProjectList.next(this.projects);
+    if(!this.projects[id].pinned){
+      this.projects.splice(id,1);
+      this.updatedProjectList.next(this.projects);
+    } else {
+      console.log("lol, no. this is protected, my dude");
+    }
     // Do not save here. Let the user reload if they made a mistake
   }
 
-  pinProject(id: number){
-    console.log('you attempted to pin a project before your refactoring was done. Sorry!')
+  togglePinProject(id: number){
+    this.projects[id]['pinned'] = !this.projects[id]['pinned'];
+    console.log('The statement "Project', id, 'is pinned" is ' + this.projects[id]['pinned']);
+    this.saveDataLocally();
+    return this.projects[id]['pinned'];
   }
 
 }

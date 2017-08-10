@@ -9,7 +9,7 @@
     <input type="text" class="form-control" name="description" [(ngModel)]="description">
   </div>
   <button class="btn btn-success" [ngClass]="{'pull-right': inCard}" (click)="onSubmit(f)">Submit</button>
-  <div class="form-group pull-left" *ngIf="inCard">
+  <div class="form-group pull-left" [ngClass]="{'hidden': pinned}" *ngIf="inCard">
     <button class="btn btn-danger" (click)="delete()">Delete Project</button>
   </div>
 </form>

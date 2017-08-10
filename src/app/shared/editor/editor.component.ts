@@ -13,7 +13,8 @@ export class EditorComponent implements OnInit {
   @Input() inCard = false;
   title = 'null';
   description = 'null';
-  @Input() project = {'title': '', 'description': ''};
+  pinned = false;
+  @Input() project = {'title': '', 'description': '', 'pinned': false};
 
   constructor(private projectServ: ProjectService) { }
 
@@ -22,6 +23,7 @@ export class EditorComponent implements OnInit {
     console.log('poject data:', this.project)
     this.title = this.project.title;
     this.description = this.project.description;
+    this.pinned = this.project.pinned;
   }
 
   onSubmit(form: NgForm){
