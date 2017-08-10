@@ -1,7 +1,9 @@
 
   <div class="card-block">
     <div class="card-limit">
-      <h4 class="card-title">{{ project.title }}</h4>
+      <button class="btn btn-success pin pull-right" (click)="pinProject()">Pin Me!</button>
+      <div class="clearfix"></div>
+      <h4 class="card-title ">{{ project.title }}</h4>
       <h3 class="card-subtitle mb-2">{{ project.time | timeFormat }}</h3>
       <p class="card-text" *ngIf="project.description !== ''">{{ project.description }}</p>
       <button class="btn btn-success" (click)="startTimer()">Start Timer</button>

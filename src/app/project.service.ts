@@ -16,12 +16,15 @@ export class ProjectService {
       new Project('TestProj 3',0,'A small description')
   ];
 
-  idSubj = new Subject<number>();
+  private pinnedProjects: Project[] = [];
+
+  timerSubj = new Subject<number>();
+  pinSubj = new Subject<number>();
   currentSub: Subscription;
   runningId: number;
 
   constructor() {
-    this.idSubj.subscribe(
+    this.timerSubj.subscribe(
       (id: number) => {
         // If this is already running, ignore click to prevent weird timer behavior
         if(this.runningId === id){
@@ -36,6 +39,12 @@ export class ProjectService {
         // set new id and run timer
         this.runningId = id;
         this.runTimerForProject(this.runningId);
+      }
+    );
+
+    this.pinSubj.subscribe(
+      (id: number) => {
+        this.pinProject(id);
       }
     );
   }
@@ -123,6 +132,10 @@ export class ProjectService {
     this.projects.splice(id,1);
     this.updatedProjectList.next(this.projects);
     // Do not save here. Let the user reload if they made a mistake
+  }
+
+  pinProject(id: number){
+    console.log('you attempted to pin a project before your refactoring was done. Sorry!')
   }
 
 }

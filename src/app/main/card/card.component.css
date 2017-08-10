@@ -8,6 +8,9 @@
   width: 100%;
   margin: 5px 0;
 }
+.pin{
+  width: 80px;
+}
 .card-limit{
   border: 1px solid black;
   max-width: 450px;

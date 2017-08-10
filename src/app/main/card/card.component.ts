@@ -19,12 +19,17 @@ export class CardComponent implements OnInit {
 
   startTimer(){
     console.log('you started card number: ', this.id);
-    this.projectServ.idSubj.next(this.id);
+    this.projectServ.timerSubj.next(this.id);
   }
 
   pauseTimer(){
     console.log('you stopped card number: ', this.id);
-    this.projectServ.idSubj.next(-1);
+    this.projectServ.timerSubj.next(-1); 
+  }
+
+  pinProject(){
+    console.log('you\'ve pinned project number: ', this.id);
+    // this.projectServ.
   }
 
 }
