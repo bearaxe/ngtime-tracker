@@ -1,4 +1,9 @@
+
+
 <div id="main">
+  <div class="card">
+    <app-main-editor></app-main-editor>
+  </div>
     <div class="card" *ngFor="let project of projectList; let i = index">
         <app-card [project]="project" [id]="i">
           <app-editor [id]="i" [inCard]="true" [project]="project"></app-editor>

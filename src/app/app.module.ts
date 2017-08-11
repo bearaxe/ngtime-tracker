@@ -11,6 +11,8 @@ import { TimeFormatPipe } from './shared/time-format.pipe';
 import { EditorMainComponent } from './editor/editor.component';
 import { EditorComponent } from './shared/editor/editor.component';
 import { BottomControlsComponent } from './bottom-controls/bottom-controls.component';
+import { ErrorComponent } from './error/error.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -23,10 +25,12 @@ import { BottomControlsComponent } from './bottom-controls/bottom-controls.compo
     EditorMainComponent,
     EditorComponent,
     BottomControlsComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

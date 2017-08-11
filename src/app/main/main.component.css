@@ -1,0 +1,8 @@
+app-main-editor{
+  border: 1px solid black;
+  width: 450px;
+  text-align: center;
+  display: block;
+  padding: 5px;
+  margin: 0 auto;
+}
