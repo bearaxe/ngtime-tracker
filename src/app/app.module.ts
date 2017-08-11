@@ -10,6 +10,7 @@ import { CardComponent } from './main/card/card.component';
 import { TimeFormatPipe } from './shared/time-format.pipe';
 import { EditorMainComponent } from './editor/editor.component';
 import { EditorComponent } from './shared/editor/editor.component';
+import { BottomControlsComponent } from './bottom-controls/bottom-controls.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { EditorComponent } from './shared/editor/editor.component';
     TimeFormatPipe,
     EditorMainComponent,
     EditorComponent,
+    BottomControlsComponent,
   ],
   imports: [
     BrowserModule,

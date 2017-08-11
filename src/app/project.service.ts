@@ -133,6 +133,14 @@ export class ProjectService {
     // Do not save here. Let the user reload if they made a mistake
   }
 
+  deleteAll(){
+    console.log('wtfTHEKING')
+    for(let i in this.projects ){
+      console.log('wtf:', i)
+      this.deleteProject(parseInt(i));
+    }
+  }
+
   togglePinProject(id: number){
     this.projects[id]['pinned'] = !this.projects[id]['pinned'];
     console.log('The statement "Project', id, 'is pinned" is ' + this.projects[id]['pinned']);
