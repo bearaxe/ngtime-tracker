@@ -118,7 +118,7 @@ export class ProjectService {
       (data.pinned === true
         ? this.projects[id].pinned = true
         : this.projects[id].pinned = false);
-    this.projects[id] = new Project(newTitle, this.projects[id]['time'], newDesc);
+    this.projects[id] = new Project(newTitle, this.projects[id]['time'], newDesc, newPin);
     this.updatedProjectList.next(this.projects);
     this.saveDataLocally();
   }
@@ -134,10 +134,23 @@ export class ProjectService {
   }
 
   deleteAll(){
-    console.log('wtfTHEKING')
+    var index = 0;
+    if(this.projects.length === 0){return;}
+    for(let attempt = 0; attempt <= this.projects.length+1; attempt++ ){
+      console.log('attempting to delete ', attempt, 'of', this.projects.length, 'left');
+      console.log('current index is:', index);
+      if(!this.projects[index].pinned){
+        this.deleteProject(index);
+      } else {
+        index++;
+      }
+      // console.log('looks succ')
+    }
+  }
+
+  setPins(setTo){
     for(let i in this.projects ){
-      console.log('wtf:', i)
-      this.deleteProject(parseInt(i));
+      this.updateProject(parseInt(i), {title: '', description: '', pinned: setTo});
     }
   }
 

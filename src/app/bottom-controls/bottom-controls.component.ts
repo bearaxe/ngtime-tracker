@@ -17,8 +17,15 @@ export class BottomControlsComponent implements OnInit {
 
   }
 
+  unpinAll(){
+    this.projectServ.setPins(false);
+  }
+
+  pinAll(){
+    this.projectServ.setPins(true);
+  }
+
   deleteAll(){
-    console.log('why the hek')
     this.projectServ.deleteAll();
   }
 
