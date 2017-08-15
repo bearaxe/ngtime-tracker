@@ -97,7 +97,7 @@ export class ProjectService {
 
   addNewProject(data: {'title': string, 'description': string}){
     // console.log("adding:", data);
-    this.projects.push(new Project(data.title, 0, data.description));
+    this.projects.unshift(new Project(data.title, 0, data.description));
     // console.log('projects now:', this.projects);
     this.updatedProjectList.next(this.projects);
     this.saveDataLocally();
