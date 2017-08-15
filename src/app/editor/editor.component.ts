@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EditorComponent } from '../shared/editor/editor.component';
+import { ProjectService } from '../project.service';
 
 @Component({
   selector: 'app-main-editor',
@@ -9,7 +10,7 @@ import { EditorComponent } from '../shared/editor/editor.component';
 export class EditorMainComponent implements OnInit {
   showEditor = false;
 
-  constructor() { }
+  constructor(private projServ: ProjectService) { }
 
   ngOnInit() {
   }

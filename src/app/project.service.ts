@@ -161,4 +161,10 @@ export class ProjectService {
     return this.projects[id]['pinned'];
   }
 
+  resetAll(){
+    for(let i in this.projects ){
+      this.projects[i].time = 0;
+    }
+  }
+
 }
