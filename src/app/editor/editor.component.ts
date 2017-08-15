@@ -10,7 +10,7 @@ import { ProjectService } from '../project.service';
 export class EditorMainComponent implements OnInit {
   showEditor = false;
 
-  constructor(private projServ: ProjectService) { }
+  constructor(public projServ: ProjectService) { }
 
   ngOnInit() {
   }
