@@ -1,4 +1,5 @@
 <button class="btn btn-warning pull-left" (click)="this.projServ.resetAll()">Reset Timers</button>
+<button class="btn btn-success" (click)="this.projServ.saveDataLocally()">Reset Timers</button>
 <button class="btn btn-info pull-right" (click)="showEditor = !showEditor">Add Project</button>
 <div class="clearfix"></div>
 <div id="editorField" [ngClass]="{'hidden': !showEditor}">
