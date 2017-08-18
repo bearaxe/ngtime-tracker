@@ -1,4 +1,6 @@
-<button class="btn btn-info" (click)="showEditor = !showEditor">Add Project</button>
-<div id="editorField" [ngClass]="{'hidden': !showEditor}">
-  <app-editor></app-editor>
+<div class="add-form-container">
+  <button class="btn btn-info" style="width:100%;" (click)="showEditor = !showEditor">Add Project</button>
+  <div id="editorField" [ngClass]="{'hidden': !showEditor}">
+    <app-editor></app-editor>
+  </div>
 </div>

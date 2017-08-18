@@ -1,13 +1,28 @@
 <div class="row">
   <div class="btn-container">
     <app-add-form></app-add-form>
-    <button class="btn btn-warning" (click)="this.projectServ.resetAll()">Reset Timers</button>
-    <button class="btn btn-success" (click)="this.projectServ.saveDataLocally()">Save Data</button>
-    <button class="btn btn-information" (click)="this.projectServ.toCSV()">To CSV</button>
-    <button class="btn btn-danger" (click)="this.projectServ.deleteAll()">Delete All</button>
-    <button class="btn btn-secondary" (click)="unpinAll()">Unpin All</button>
-    <button class="btn btn-primary" (click)="pinAll()">Pin All</button>
-    <button class="btn btn-information" (click)="toggleScreen()">Widescreen Mode</button>
+    <div class="clearfix"></div>
+    <div class="btn-group btn-center" role="group">
+      <button class="btn btn-success" (click)="this.projectServ.saveDataLocally()">Save Data</button>
+      <button class="btn btn-primary" (click)="open('showBatch')">Mass Ops</button>
+      <button class="btn btn-info" (click)="open('showOptions')">Options</button>
+    </div>
+
+
+    <div class="clearfix"></div>
+    <div class="sub-menu" [ngClass]="{'hidden': !showBatch}">
+      <button class="btn btn-danger" (click)="this.projectServ.deleteAll()">Delete All</button>
+      <div class="btn-group pull-right" role="group">
+        <button class="btn btn-secondary" (click)="unpinAll()">Unpin All</button>
+        <button class="btn btn-primary" (click)="pinAll()">Pin All</button>
+        <button class="btn btn-warning" (click)="this.projectServ.resetAll()">Reset Timers</button>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="sub-menu"[ngClass]="{'hidden': !showOptions}">
+      <button class="btn btn-warning" (click)="toggleScreen()">Widescreen Mode</button>
+      <button class="btn btn-info" (click)="this.projectServ.toCSV()">Download CSV</button>
+    </div>
     <div class="clearfix"></div>
   </div>
 </div>

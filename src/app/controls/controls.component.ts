@@ -7,10 +7,23 @@ import { ProjectService } from '../project.service';
   styleUrls: ['./controls.component.css']
 })
 export class ControlsComponent implements OnInit {
+  showBatch = false;
+  showOptions = false;
 
   constructor(public projectServ: ProjectService) { }
 
   ngOnInit() {
+  }
+
+  open(set){
+    //close possible opens
+    if(set !== 'showBatch'){
+      this.showBatch = false;
+    }else{
+      this.showOptions = false;
+    }
+    //toggle
+    this[set] = !this[set];
   }
 
   unpinAll(){
