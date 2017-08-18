@@ -23,4 +23,9 @@ export class HeaderComponent implements OnInit {
         });
     }
 
+    startTimer(id){
+      console.log('you started card number: ', id);
+      this.projectServ.timerSubj.next(id);
+    }
+
 }

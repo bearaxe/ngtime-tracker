@@ -6,10 +6,10 @@
         <div class="navbar-left">
             <ul class="nav navbar-nav">
                 <li class="dropdown" appDropdown>
-                    <a style="cursor:pointer;" class="dropdown-toggle pull-left" role="button" >Manage <span class="caret"></span></a>
+                    <a style="cursor:pointer;" class="dropdown-toggle pull-left" role="button" >Quick List <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li *ngFor="let project of projectList">
-                            <a href="#">
+                        <li *ngFor="let project of projectList; let i = index">
+                            <a (click)="startTimer(i)">
                                 {{ project.title }}
                             </a>
                         </li>
@@ -19,7 +19,5 @@
                 </li>
             </ul>
         </div>
-
-
     </div>
 </nav>
