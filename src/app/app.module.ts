@@ -9,7 +9,6 @@ import { MainComponent } from './main/main.component';
 import { CardComponent } from './main/card/card.component';
 import { TimeFormatPipe } from './shared/time-format.pipe';
 import { EditorComponent } from './shared/editor/editor.component';
-import { BottomControlsComponent } from './bottom-controls/bottom-controls.component';
 import { ErrorComponent } from './error/error.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AddFormComponent } from './add-form/add-form.component';
@@ -24,7 +23,6 @@ import { ControlsComponent } from './controls/controls.component';
     CardComponent,
     TimeFormatPipe,
     EditorComponent,
-    BottomControlsComponent,
     ErrorComponent,
     AddFormComponent,
     ControlsComponent,
