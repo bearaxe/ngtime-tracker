@@ -22,7 +22,7 @@ export class ProjectService {
 
   // any user set options that should be saved go here
   options = {
-    wideScreen: false,
+    'wideScreen': false
   }
 
   constructor() {
@@ -75,17 +75,34 @@ export class ProjectService {
   saveDataLocally(){
     const saveData = JSON.stringify(this.getProjects());
     const saveOpts = JSON.stringify(this.options);
-    console.log('Trying to save this to local storage:', saveData);
     window.localStorage.setItem('time-tracker-data', saveData);
     window.localStorage.setItem('time-tracker-options', saveOpts);
+    console.log('loc store:', window.localStorage);
   }
 
   fetchLocalData(){
     const retrievedData = JSON.parse(window.localStorage.getItem('time-tracker-data'));
-    this.options = JSON.parse(window.localStorage.getItem('time-tracker-options'));
+    const retrievedOpts = JSON.parse(window.localStorage.getItem('time-tracker-options'));
+    console.log('options set to:', this.options);
     console.log('got data from browser:\n', retrievedData);
     if(retrievedData !== null){
       this.setProjects(retrievedData);
+    }
+
+    if(retrievedOpts !== null){
+      this.setOpts(retrievedOpts);
+    }
+
+  }
+
+  setOpts(opts: Object){
+    const keys = Object.keys(opts);
+    if(keys[0].length === 1){return;} //something went wrong, so use default options instead.
+    //NOTE: YOU CAN NOT EVER USE AN OPTIONS WITH 1 CHARACTER NAMES NOW.
+
+    for(const key in keys){
+      const currKey=keys[key];
+      this.options[currKey] = opts[currKey];
     }
   }
 
@@ -166,6 +183,11 @@ export class ProjectService {
     console.log('The statement "Project', id, 'is pinned" is ' + this.projects[id]['pinned']);
     this.saveDataLocally();
     return this.projects[id]['pinned'];
+  }
+
+  saveOption(optionKey, newValue){
+    this.options[optionKey] = newValue;
+    this.saveDataLocally();
   }
 
   resetAll(){

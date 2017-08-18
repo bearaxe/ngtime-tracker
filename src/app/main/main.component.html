@@ -1,9 +1,8 @@
 <div id="main">
   <div class="controls card">
     <app-controls></app-controls>
-    <button class="btn btn-information" (click)="widescreen = !widescreen">Widescreen Mode</button>
   </div>
-  <div [ngClass]="{'flex-container': widescreen}">
+  <div [ngClass]="{'flex-container': this.projectServ.options.wideScreen}">
     <div class="card" *ngFor="let project of projectList; let i = index">
         <app-card [project]="project" [id]="i">
           <app-editor [id]="i" [inCard]="true" [project]="project"></app-editor>

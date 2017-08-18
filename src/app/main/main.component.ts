@@ -11,9 +11,8 @@ import { Subscription } from 'rxjs/Subscription';
 export class MainComponent implements OnInit, OnDestroy {
     projectList: Project[];
     private subscription: Subscription;
-    widescreen = false;
 
-    constructor(private projectServ:ProjectService) { }
+    constructor(public projectServ:ProjectService) { }
 
     ngOnInit() {
         this.projectList = this.projectServ.getProjects();
@@ -26,10 +25,6 @@ export class MainComponent implements OnInit, OnDestroy {
 
     ngOnDestroy() {
       this.subscription.unsubscribe();
-    }
-
-    toggleScreen(){
-      this.widescreen = !this.widescreen;
     }
 
 }

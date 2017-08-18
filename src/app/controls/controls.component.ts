@@ -25,4 +25,8 @@ export class ControlsComponent implements OnInit {
     this.projectServ.deleteAll();
   }
 
+  toggleScreen(){
+    this.projectServ.saveOption('wideScreen', !this.projectServ.options.wideScreen)
+  }
+
 }
