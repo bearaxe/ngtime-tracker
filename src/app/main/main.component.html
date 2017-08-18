@@ -1,8 +1,6 @@
-
-
 <div id="main">
-  <div class="card">
-    <app-main-editor></app-main-editor>
+  <div class="controls card">
+    <app-controls></app-controls>
     <button class="btn btn-information" (click)="widescreen = !widescreen">Widescreen Mode</button>
   </div>
   <div [ngClass]="{'flex-container': widescreen}">
@@ -11,8 +9,5 @@
           <app-editor [id]="i" [inCard]="true" [project]="project"></app-editor>
         </app-card>
     </div>
-  </div>
-  <div class="bottom-controls">
-    <app-bottom-controls></app-bottom-controls>
   </div>
 </div>

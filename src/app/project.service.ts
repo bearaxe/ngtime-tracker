@@ -11,9 +11,9 @@ export class ProjectService {
   updatedProjectList = new Subject<Project[]>();
 
   private projects: Project[] = [
-      new Project('TestProj 1',0,'A small description'),
-      new Project('TestProj 2',0,'A small description'),
-      new Project('TestProj 3',0,'A small description')
+      new Project('TestProj 1',0,'A small description',false),
+      new Project('TestProj 2',0,'A small description',false),
+      new Project('TestProj 3',0,'A small description',false)
   ];
 
   timerSubj = new Subject<number>();

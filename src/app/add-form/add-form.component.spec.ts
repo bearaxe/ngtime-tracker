@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BottomControlsComponent } from './bottom-controls.component';
+import { AddFormComponent } from './add-form.component';
 
-describe('BottomControlsComponent', () => {
-  let component: BottomControlsComponent;
-  let fixture: ComponentFixture<BottomControlsComponent>;
+describe('AddFormComponent', () => {
+  let component: AddFormComponent;
+  let fixture: ComponentFixture<AddFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BottomControlsComponent ]
+      declarations: [ AddFormComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BottomControlsComponent);
+    fixture = TestBed.createComponent(AddFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,4 +1,4 @@
-app-main-editor{
+app-add-form{
   border: 1px solid black;
   width: 450px;
   text-align: center;
@@ -12,4 +12,14 @@ app-main-editor{
   justify-content: space-between;
   align-items: stretch;
   align-content: space-between;
+}
+.card{
+  width: 450px;
+  margin: 0 auto;
+}
+.controls{
+  border: 1px solid black;
+  max-width: 450px;
+  padding: 0 15px;
+  margin: 10px auto 0;
 }

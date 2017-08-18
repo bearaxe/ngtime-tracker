@@ -1,8 +1,0 @@
-<button class="btn btn-warning pull-left" (click)="this.projServ.resetAll()">Reset Timers</button>
-<button class="btn btn-success" (click)="this.projServ.saveDataLocally()">Save Data</button>
-<button class="btn btn-information" (click)="this.projServ.toCSV()">To CSV</button>
-<button class="btn btn-info pull-right" (click)="showEditor = !showEditor">Add Project</button>
-<div class="clearfix"></div>
-<div id="editorField" [ngClass]="{'hidden': !showEditor}">
-  <app-editor></app-editor>
-</div>

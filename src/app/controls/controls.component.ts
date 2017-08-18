@@ -2,19 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../project.service';
 
 @Component({
-  selector: 'app-bottom-controls',
-  templateUrl: './bottom-controls.component.html',
-  styleUrls: ['./bottom-controls.component.css']
+  selector: 'app-controls',
+  templateUrl: './controls.component.html',
+  styleUrls: ['./controls.component.css']
 })
-export class BottomControlsComponent implements OnInit {
+export class ControlsComponent implements OnInit {
 
-  constructor(private projectServ: ProjectService) { }
+  constructor(public projectServ: ProjectService) { }
 
   ngOnInit() {
-  }
-
-  placeholder(){
-
   }
 
   unpinAll(){

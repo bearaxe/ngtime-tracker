@@ -3,18 +3,16 @@ import { EditorComponent } from '../shared/editor/editor.component';
 import { ProjectService } from '../project.service';
 
 @Component({
-  selector: 'app-main-editor',
-  templateUrl: './editor.component.html',
-  styleUrls: ['./editor.component.css']
+  selector: 'app-add-form',
+  templateUrl: './add-form.component.html',
+  styleUrls: ['./add-form.component.css']
 })
-export class EditorMainComponent implements OnInit {
+export class AddFormComponent implements OnInit {
   showEditor = false;
 
   constructor(public projServ: ProjectService) { }
 
   ngOnInit() {
   }
-
-
 
 }
