@@ -13,6 +13,7 @@ import { ErrorComponent } from './error/error.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AddFormComponent } from './add-form/add-form.component';
 import { ControlsComponent } from './controls/controls.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ControlsComponent } from './controls/controls.component';
     ErrorComponent,
     AddFormComponent,
     ControlsComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,

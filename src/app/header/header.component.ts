@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Project } from '../shared/project.model';
 import { ProjectService } from '../project.service';
 import { Subscription } from 'rxjs/Subscription';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header',
