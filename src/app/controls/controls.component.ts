@@ -7,23 +7,33 @@ import { ProjectService } from '../project.service';
   styleUrls: ['./controls.component.css']
 })
 export class ControlsComponent implements OnInit {
+  open = ' ⋀';
+  close = ' ⋁';
   showBatch = false;
+  showBatchDef = "Mass Ops";
+  showBatchLbl = this.showBatchDef + this.close;
   showOptions = false;
+  showOptionsDef = "Options";
+  showOptionsLbl = this.showOptionsDef + this.close;
+
 
   constructor(public projectServ: ProjectService) { }
 
   ngOnInit() {
   }
 
-  open(set){
+  toggle(set){
     //close possible opens
     if(set !== 'showBatch'){
       this.showBatch = false;
+      this.showBatchLbl = this.showBatchDef + this.close;
     }else{
       this.showOptions = false;
+      this.showOptionsLbl = this.showOptionsDef + this.close;
     }
     //toggle
     this[set] = !this[set];
+    this[set + 'Lbl'] = this[set + 'Def'] + (this[set]?this.open:this.close);
   }
 
   unpinAll(){

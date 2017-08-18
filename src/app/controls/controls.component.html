@@ -4,8 +4,8 @@
     <div class="clearfix"></div>
     <div class="btn-group btn-center" role="group">
       <button class="btn btn-success" (click)="this.projectServ.saveDataLocally()">Save Data</button>
-      <button class="btn btn-primary" (click)="open('showBatch')">Mass Ops</button>
-      <button class="btn btn-info" (click)="open('showOptions')">Options</button>
+      <button class="btn btn-primary" (click)="toggle('showBatch')">{{ showBatchLbl }}</button>
+      <button class="btn btn-info" (click)="toggle('showOptions')">{{ showOptionsLbl }}</button>
     </div>
 
 
