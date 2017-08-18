@@ -20,7 +20,14 @@
     </div>
     <div class="clearfix"></div>
     <div class="sub-menu"[ngClass]="{'hidden': !showOptions}">
-      <button class="btn btn-warning" (click)="toggleScreen()">Widescreen Mode</button>
+      <div class="form-check-inline">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox"
+          [checked]="this.projectServ.options.wideScreen"
+          (change)="toggleScreen()">
+          Use Widescreen Layout
+        </label>
+      </div>
       <button class="btn btn-info" (click)="this.projectServ.toCSV()">Download CSV</button>
     </div>
     <div class="clearfix"></div>
