@@ -1,5 +1,5 @@
 <div class="add-form-container">
-  <button class="btn btn-info" style="width:100%;" (click)="showEditor = !showEditor">Add Project</button>
+  <button class="btn btn-info" style="width:100%;" (click)="toggleEditor()">{{ text }}</button>
   <div id="editorField" [ngClass]="{'hidden': !showEditor}">
     <app-editor></app-editor>
   </div>

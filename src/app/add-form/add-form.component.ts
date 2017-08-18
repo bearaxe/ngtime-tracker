@@ -9,10 +9,17 @@ import { ProjectService } from '../project.service';
 })
 export class AddFormComponent implements OnInit {
   showEditor = false;
+  options = {'false': 'Add Project', 'true': 'Close'};
+  text = this.options[''+this.showEditor];
 
   constructor(public projServ: ProjectService) { }
 
   ngOnInit() {
+  }
+
+  toggleEditor(){
+    this.showEditor = !this.showEditor;
+    this.text = this.options[''+this.showEditor];    
   }
 
 }
