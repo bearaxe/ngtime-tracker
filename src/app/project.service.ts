@@ -93,7 +93,7 @@ export class ProjectService {
     let result: Project[] = [];
     for(const each in data){
       console.log( data[each]);
-      result.push(new Project(data[each]['title'], data[each]['time'], data[each]['description'], data[each]['pinned']));
+      result.push(new Project(data[each]['title'], data[each]['time'], data[each]['description'], (data[each]['pinned']?data[each]['pinned']:false)));
       console.log('results: ', result);
     }
     this.projects = result;
