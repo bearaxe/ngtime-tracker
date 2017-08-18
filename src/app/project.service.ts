@@ -20,6 +20,11 @@ export class ProjectService {
   currentSub: Subscription;
   runningId: number;
 
+  // any user set options that should be saved go here
+  options = {
+    wideScreen: false,
+  }
+
   constructor() {
     this.timerSubj.subscribe(
       (id: number) => {
@@ -69,12 +74,15 @@ export class ProjectService {
 
   saveDataLocally(){
     const saveData = JSON.stringify(this.getProjects());
+    const saveOpts = JSON.stringify(this.options);
     console.log('Trying to save this to local storage:', saveData);
     window.localStorage.setItem('time-tracker-data', saveData);
+    window.localStorage.setItem('time-tracker-options', saveOpts);
   }
 
   fetchLocalData(){
     const retrievedData = JSON.parse(window.localStorage.getItem('time-tracker-data'));
+    this.options = JSON.parse(window.localStorage.getItem('time-tracker-options'));
     console.log('got data from browser:\n', retrievedData);
     if(retrievedData !== null){
       this.setProjects(retrievedData);
@@ -97,7 +105,7 @@ export class ProjectService {
 
   addNewProject(data: {'title': string, 'description': string}){
     // console.log("adding:", data);
-    this.projects.unshift(new Project(data.title, 0, data.description));
+    this.projects.unshift(new Project(data.title, 0, data.description, false));
     // console.log('projects now:', this.projects);
     this.updatedProjectList.next(this.projects);
     this.saveDataLocally();
@@ -135,16 +143,15 @@ export class ProjectService {
 
   deleteAll(){
     var index = 0;
+    const initProjLen = this.projects.length;
     if(this.projects.length === 0){return;}
-    for(let attempt = 0; attempt <= this.projects.length+1; attempt++ ){
-      console.log('attempting to delete ', attempt, 'of', this.projects.length, 'left');
-      console.log('current index is:', index);
+    for(let attempt = 0; attempt < initProjLen; attempt++ ){
+      console.log('attempting to delete ', index, 'at attempt ', attempt, 'of', this.projects.length, 'left');
       if(!this.projects[index].pinned){
         this.deleteProject(index);
       } else {
         index++;
       }
-      // console.log('looks succ')
     }
   }
 
