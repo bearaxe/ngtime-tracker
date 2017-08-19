@@ -10,7 +10,7 @@ export class ControlsComponent implements OnInit {
   open = ' ⋀';
   close = ' ⋁';
   showBatch = false;
-  showBatchDef = "Mass Ops";
+  showBatchDef = "Batch Ops";
   showBatchLbl = this.showBatchDef + this.close;
   showOptions = false;
   showOptionsDef = "Options";
