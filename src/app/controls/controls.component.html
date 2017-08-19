@@ -31,5 +31,8 @@
       <button class="btn btn-info" (click)="this.projectServ.toCSV()">Download CSV</button>
     </div>
     <div class="clearfix"></div>
+    <div class="alert-success" [ngClass]="{'hidden': !showNote}">
+      <strong>Saved!</strong> Your projects have been saved.
+    </div>
   </div>
 </div>

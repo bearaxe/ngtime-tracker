@@ -19,6 +19,7 @@ export class ProjectService {
   timerSubj = new Subject<number>();
   currentSub: Subscription;
   runningId: number;
+  saveSubj = new Subject<void>();
 
   // any user set options that should be saved go here
   options = {
@@ -78,6 +79,7 @@ export class ProjectService {
     window.localStorage.setItem('time-tracker-data', saveData);
     window.localStorage.setItem('time-tracker-options', saveOpts);
     console.log('loc store:', window.localStorage);
+    this.saveSubj.next();
   }
 
   fetchLocalData(){

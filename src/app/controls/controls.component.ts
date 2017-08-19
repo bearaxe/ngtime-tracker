@@ -15,11 +15,22 @@ export class ControlsComponent implements OnInit {
   showOptions = false;
   showOptionsDef = "Options";
   showOptionsLbl = this.showOptionsDef + this.close;
+  showNote = false;
 
 
   constructor(public projectServ: ProjectService) { }
 
   ngOnInit() {
+    this.projectServ.saveSubj.subscribe(
+      ()=>{
+        this.saveDisplay();
+      });
+  }
+
+  saveDisplay(){
+    // this.projectServ.saveDataLocally();
+    this.showNote = true;
+    setTimeout(()=>{this.showNote = false;}, 500);
   }
 
   toggle(set){
